@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.daveguy.matchmaker.MainActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="?android:attr/buttonBarStyle"
+        android:background="@color/darkGrey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/button_pane">
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/games_button"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:onClick="toGames"/>
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/players_button"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:onClick="toPlayers"/>
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/match_button"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:onClick="Match"/>
+    </LinearLayout>
+
+    <include layout="@layout/games"
+        android:layout_below="@id/button_pane"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="invisible"/>
+
+    <include layout="@layout/players"
+        android:layout_below="@id/button_pane"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="visible"/>
+
+    <include layout="@layout/match"
+        android:layout_below="@id/button_pane"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

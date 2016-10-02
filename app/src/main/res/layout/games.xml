@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/games">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:hint="@string/games_hint"
+        android:background="@color/off_white"
+        android:id="@+id/games_list"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/games_list"
+        android:text="@string/save_button"
+        android:textStyle="bold"
+        android:onClick="saveGames"
+        android:visibility="invisible"
+        android:id="@+id/games_list_save"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/games_list"
+        android:layout_alignStart="@id/games_list_save"
+        android:layout_alignEnd="@id/games_list_save"
+        android:layout_alignLeft="@id/games_list_save"
+        android:layout_alignRight="@id/games_list_save"
+        android:layout_alignTop="@id/games_list_save"
+        android:layout_alignBottom="@id/games_list_save"
+        android:gravity="center"
+        android:text="@string/saved"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:id="@+id/games_saved_text"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/games_list"
+        android:layout_toEndOf="@id/games_list_save"
+        android:layout_toRightOf="@id/games_list_save"
+        android:text="@string/clear_button"
+        android:textStyle="bold"
+        android:id="@+id/games_list_clear"
+        android:onClick="resetTextGames"/>
+
+
+</RelativeLayout>

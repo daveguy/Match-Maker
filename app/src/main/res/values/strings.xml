@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Match Maker</string>
+
+    <string name="games_hint">Enter Games List</string>
+    <string name="players_hint">Input Players</string>
+    <string name="save_button">Save</string>
+    <string name="clear_button">Clear</string>
+    <string name="games_button">Games</string>
+    <string name="players_button">Players</string>
+    <string name="match_button">Match \'Em</string>
+    <string name="make_match_button">Make Matches</string>
+    <string name="saved">Saved</string>
+
+    <string name="not_enough_players">Not enough players to make groups</string>
+    <string name="not_enough_machines">Not enough machines to make groups</string>
+</resources>
