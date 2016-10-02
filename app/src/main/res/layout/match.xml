@@ -5,19 +5,24 @@
     android:layout_height="match_parent"
     android:id="@+id/match">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/off_white"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:visibility="invisible"
-        android:id="@+id/match_list"/>
+        android:id="@+id/match_list_scroll">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/off_white"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="invisible"
+            android:id="@+id/match_list"/>
+    </ScrollView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/match_list"
+        android:layout_below="@+id/match_list_scroll"
         android:layout_centerInParent="true"
         android:text="@string/make_match_button"
         android:textStyle="bold"

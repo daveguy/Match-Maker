@@ -4,17 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/games">
-    <EditText
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="175sp"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:hint="@string/games_hint"
-        android:background="@color/off_white"
-        android:id="@+id/games_list"/>
+        android:id="@+id/games_list_scroll">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="@string/games_hint"
+            android:background="@color/off_white"
+            android:id="@+id/games_list"/>
+    </ScrollView>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/games_list"
+        android:layout_below="@+id/games_list_scroll"
         android:text="@string/save_button"
         android:textStyle="bold"
         android:onClick="saveGames"
@@ -23,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/games_list"
+        android:layout_below="@id/games_list_scroll"
         android:layout_alignStart="@id/games_list_save"
         android:layout_alignEnd="@id/games_list_save"
         android:layout_alignLeft="@id/games_list_save"
@@ -41,7 +46,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/games_list"
+        android:layout_below="@+id/games_list_scroll"
         android:layout_toEndOf="@id/games_list_save"
         android:layout_toRightOf="@id/games_list_save"
         android:text="@string/clear_button"
