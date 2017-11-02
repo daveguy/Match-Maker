@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:id="@+id/players">
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/players">
-
-        <ScrollView
-            android:layout_width="175sp"
+    <ScrollView
+        android:layout_width="175sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/player_list_scroll">
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/player_list_scroll">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:hint="@string/players_hint"
-                android:background="@color/off_white"
-                android:id="@+id/player_list"/>
-        </ScrollView>
+            android:inputType="textMultiLine"
+            android:hint="@string/players_hint"
+            android:background="@color/off_white"
+            android:id="@+id/player_list"/>
+    </ScrollView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/player_list_scroll"
-            android:text="@string/save_button"
-            android:textStyle="bold"
-            android:onClick="savePlayers"
-            android:visibility="invisible"
-            android:id="@+id/player_list_save"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/player_list_scroll"
+        android:text="@string/save_button"
+        android:textStyle="bold"
+        android:onClick="savePlayers"
+        android:visibility="invisible"
+        android:id="@+id/player_list_save"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/player_list_scroll"
-            android:layout_alignStart="@id/player_list_save"
-            android:layout_alignEnd="@id/player_list_save"
-            android:layout_alignLeft="@id/player_list_save"
-            android:layout_alignRight="@id/player_list_save"
-            android:layout_alignTop="@id/player_list_save"
-            android:layout_alignBottom="@id/player_list_save"
-            android:gravity="center"
-            android:text="@string/saved"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:id="@+id/players_saved_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/player_list_scroll"
+        android:layout_alignStart="@id/player_list_save"
+        android:layout_alignEnd="@id/player_list_save"
+        android:layout_alignLeft="@id/player_list_save"
+        android:layout_alignRight="@id/player_list_save"
+        android:layout_alignTop="@id/player_list_save"
+        android:layout_alignBottom="@id/player_list_save"
+        android:gravity="center"
+        android:text="@string/saved"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:id="@+id/players_saved_text"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/player_list_save"
-            android:layout_toRightOf="@id/player_list_save"
-            android:layout_below="@id/player_list_scroll"
-            android:text="@string/clear_button"
-            android:textStyle="bold"
-            android:onClick="resetTextPlayers"
-            android:id="@+id/player_list_clear"/>
-    </RelativeLayout>
-</ScrollView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/player_list_save"
+        android:layout_toRightOf="@id/player_list_save"
+        android:layout_below="@id/player_list_scroll"
+        android:text="@string/clear_button"
+        android:textStyle="bold"
+        android:onClick="resetTextPlayers"
+        android:id="@+id/player_list_clear"/>
+</RelativeLayout>

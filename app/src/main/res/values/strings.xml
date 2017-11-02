@@ -9,6 +9,7 @@
     <string name="players_button">Players</string>
     <string name="match_button">Match \'Em</string>
     <string name="make_match_button">Make Matches</string>
+    <string name="tiebreaker_button">Get Tiebreaker</string>
     <string name="saved">Saved</string>
 
     <string name="not_enough_players">Not enough players to make groups</string>

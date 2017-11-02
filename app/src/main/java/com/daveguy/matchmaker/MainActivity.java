@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private final String newLine = System.getProperty("line.separator");
@@ -40,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         groupsMaker = new GroupsMaker();
         gamesList = load(GAMES);
         playerList = load(PLAYERS);
+
+        findViewById(R.id.toMatch_button).setBackgroundResource(R.color.darkGrey);
+        findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.tab_clicked);
+        findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
+
         EditText text = (EditText) findViewById(R.id.games_list);
         text.setText(gamesList);
         text.addTextChangedListener(new TextWatcher() {
@@ -88,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.match).setVisibility(View.INVISIBLE);
         findViewById(R.id.players).setVisibility(View.INVISIBLE);
         findViewById(R.id.games).setVisibility(View.VISIBLE);
+        findViewById(R.id.toMatch_button).setBackgroundResource(R.color.darkGrey);
+        findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.darkGrey);
+        findViewById(R.id.toGames_button).setBackgroundResource(R.color.tab_clicked);
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0, new ResultReceiver(new Handler()));
     }
 
@@ -95,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.match).setVisibility(View.INVISIBLE);
         findViewById(R.id.players).setVisibility(View.VISIBLE);
         findViewById(R.id.games).setVisibility(View.INVISIBLE);
+        findViewById(R.id.toMatch_button).setBackgroundResource(R.color.darkGrey);
+        findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.tab_clicked);
+        findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0, new ResultReceiver(new Handler()));
     }
 
@@ -102,16 +115,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.match).setVisibility(View.VISIBLE);
         findViewById(R.id.players).setVisibility(View.INVISIBLE);
         findViewById(R.id.games).setVisibility(View.INVISIBLE);
+        findViewById(R.id.toMatch_button).setBackgroundResource(R.color.tab_clicked);
+        findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.darkGrey);
+        findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0, new ResultReceiver(new Handler()));
     }
 
     public void makeMatches(View view){
-        findViewById(R.id.match_list).setVisibility(View.VISIBLE);
-
         TextView matches = (TextView) findViewById(R.id.match_list);
-
-        EditText playersText = (EditText) findViewById(R.id.player_list);
-        LinkedList<String[]> playerGroups = groupsMaker.getPlayerGroups(playersText.getText().toString().split(newLine));
+        matches.setVisibility(View.VISIBLE);
+        LinkedList<String[]> playerGroups = groupsMaker.getPlayerGroups(playerList.split(newLine));
         if(playerGroups == null){
             matches.setText(NOT_ENOUGH_PLAYERS);
             return;
@@ -129,6 +142,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         matches.setText(outString);
+    }
+
+    public void tiebreaker(View view){
+        TextView text = (TextView)findViewById(R.id.tiebreaker_list);
+        text.setVisibility(View.VISIBLE);
+        String[] games = gamesList.split(newLine);
+        text.setText(games[(new Random()).nextInt(games.length)]);
     }
 
     private String load(String fileIn){

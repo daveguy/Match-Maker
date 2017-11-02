@@ -29,6 +29,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16dp"
+            android:id="@+id/toGames_button"
             android:onClick="toGames"/>
         <Button
             style="?android:attr/buttonBarButtonStyle"
@@ -39,6 +40,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16dp"
+            android:id="@+id/toPlayers_button"
             android:onClick="toPlayers"/>
         <Button
             style="?android:attr/buttonBarButtonStyle"
@@ -49,6 +51,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16dp"
+            android:id="@+id/toMatch_button"
             android:onClick="Match"/>
     </LinearLayout>
 

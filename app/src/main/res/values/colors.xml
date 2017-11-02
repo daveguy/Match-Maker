@@ -7,4 +7,5 @@
     <color name="lightGrey">#6b727f</color>
     <color name="black">#000000</color>
     <color name="off_white">#fcfaed</color>
+    <color name="tab_clicked">#e8e8e4</color>
 </resources>
