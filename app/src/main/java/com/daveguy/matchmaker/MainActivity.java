@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         groupsMaker = new GroupsMaker();
         gamesList = load(GAMES);
         playerList = load(PLAYERS);
-
         findViewById(R.id.toMatch_button).setBackgroundResource(R.color.darkGrey);
         findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.tab_clicked);
         findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
