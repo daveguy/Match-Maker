@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.tab_clicked);
         findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
 
-        EditText text = (EditText) findViewById(R.id.games_list);
+        EditText text = findViewById(R.id.games_list);
         text.setText(gamesList);
         text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView t = (TextView) findViewById(R.id.games_saved_text);
+                TextView t =  findViewById(R.id.games_saved_text);
                 t.setVisibility(View.INVISIBLE);
-                Button b = (Button) findViewById(R.id.games_list_save);
+                Button b = findViewById(R.id.games_list_save);
                 b.setVisibility(View.VISIBLE);
             }
 
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        text = (EditText) findViewById(R.id.player_list);
+        text = findViewById(R.id.player_list);
         text.setText(playerList);
         text.addTextChangedListener(new TextWatcher() {
             @Override
@@ -78,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                TextView t = (TextView) findViewById(R.id.players_saved_text);
+                TextView t = findViewById(R.id.players_saved_text);
                 t.setVisibility(View.INVISIBLE);
-                Button b = (Button) findViewById(R.id.player_list_save);
+                Button b = findViewById(R.id.player_list_save);
                 b.setVisibility(View.VISIBLE);
             }
 
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void makeMatches(View view){
-        TextView matches = (TextView) findViewById(R.id.match_list);
+        TextView matches = findViewById(R.id.match_list);
         matches.setVisibility(View.VISIBLE);
         LinkedList<String[]> playerGroups = groupsMaker.getPlayerGroups(playerList.split(newLine));
         if(playerGroups == null){
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tiebreaker(View view){
-        TextView text = (TextView)findViewById(R.id.tiebreaker_list);
+        TextView text = findViewById(R.id.tiebreaker_list);
         text.setVisibility(View.VISIBLE);
         String[] games = gamesList.split(newLine);
         text.setText(games[(new Random()).nextInt(games.length)]);
@@ -168,22 +167,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetTextGames(View view){
-        EditText text = (EditText) findViewById(R.id.games_list);
+        EditText text = findViewById(R.id.games_list);
         text.setText(null);
     }
 
     public void resetTextPlayers(View view){
-        EditText text = (EditText) findViewById(R.id.player_list);
+        EditText text = findViewById(R.id.player_list);
         text.setText(null);
     }
 
     public void saveGames(View view){
         view.setVisibility(View.INVISIBLE);
-        TextView saved = (TextView) findViewById(R.id.games_saved_text);
+        TextView saved = findViewById(R.id.games_saved_text);
         saved.setVisibility(View.VISIBLE);
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0, new ResultReceiver(new Handler()));
 
-        EditText text = (EditText) findViewById(R.id.games_list);
+        EditText text = findViewById(R.id.games_list);
         String textString = text.getText().toString();
         gamesList = textString;
         File file = new File(getFilesDir(), GAMES);
@@ -200,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void savePlayers(View view){
         view.setVisibility(View.INVISIBLE);
-        TextView saved = (TextView) findViewById(R.id.players_saved_text);
+        TextView saved = findViewById(R.id.players_saved_text);
         saved.setVisibility(View.VISIBLE);
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(view.getWindowToken(), 0, new ResultReceiver(new Handler()));
 
-        EditText text = (EditText) findViewById(R.id.player_list);
+        EditText text = findViewById(R.id.player_list);
         String textString = text.getText().toString();
         playerList = textString;
         File file = new File(getFilesDir(), PLAYERS);
