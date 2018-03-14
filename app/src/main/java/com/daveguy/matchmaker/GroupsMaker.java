@@ -75,7 +75,21 @@ class GroupsMaker {
         return groups;
     }
 
-    private void pickGroups(LinkedList<String[]> groups,String[] players) {
+    private void pickGroups(LinkedList<String[]> groups,String[] players)
+    {
+        int numThree = getGroupsOfThree(players.length);
+        int numFour = numThree > 0? (players.length / 4 + 1) - numThree : players.length / 4;
+        int index = 0;
+        for(int i = 0; i < numFour; i++){
+            groups.add(new String[]{players[index++], players[index++], players[index++], players[index++]});
+        }
+        for(int i = 0; i < numThree; i++){
+            groups.add(new String[]{players[index++], players[index++], players[index++], "Ghost"});
+        }
+    }
+
+    //deprecated, groups are no longer random
+    private void pickGroupsOld(LinkedList<String[]> groups,String[] players) {
         int[] alreadyPicked = new int[players.length];
         int numThree = getGroupsOfThree(players.length);
         int numFour = numThree > 0? (players.length / 4 + 1) - numThree : players.length / 4;
@@ -89,6 +103,7 @@ class GroupsMaker {
         }
     }
 
+    //deprecated, groups are no longer random
     private String[] pickGroup3(String[] players, int[] alreadyPicked) {
         String[] group = new String[]{null, null,null,"Ghost"};
         int count = 0;
@@ -103,6 +118,7 @@ class GroupsMaker {
         return group;
     }
 
+    //deprecated, groups are no longer random
     private String[] pickGroup4(String[] players, int[] alreadyPicked) {
         String[] group = new String[]{null, null,null,null};
         int count = 0;

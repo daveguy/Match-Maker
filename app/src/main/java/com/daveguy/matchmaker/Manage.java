@@ -1,10 +1,12 @@
 package com.daveguy.matchmaker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
@@ -40,7 +43,8 @@ public class Manage extends AppCompatActivity {
 
         groupsMaker = new GroupsMaker();
         gamesList = load(GAMES);
-        playerList = load(PLAYERS);
+        //playerList = load(PLAYERS);
+        playerList = loadPlayers();
         findViewById(R.id.toMatch_button).setBackgroundResource(R.color.darkGrey);
         findViewById(R.id.toPlayers_button).setBackgroundResource(R.color.tab_clicked);
         findViewById(R.id.toGames_button).setBackgroundResource(R.color.darkGrey);
@@ -87,6 +91,12 @@ public class Manage extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+    }
+
+    private String loadPlayers() {
+        Intent intent = getIntent();
+        ArrayList<String> players = intent.getStringArrayListExtra("playerList");
+        return TextUtils.join("\n", players);
     }
 
     public void toGames(View view){
